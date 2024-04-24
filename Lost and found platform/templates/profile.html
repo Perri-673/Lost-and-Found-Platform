@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Lost and Found Platform</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 50px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h2>User Profile</h2>
+
+    {% if user %}
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <!-- Add other user profile information as needed -->
+    {% else %}
+        <p>No user information available.</p>
+    {% endif %}
+
+    <h2>Notifications</h2>
+    <ul>
+        {% for notification in user.notifications %}
+            <li>{{ notification.message }} - {{ notification.timestamp }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
